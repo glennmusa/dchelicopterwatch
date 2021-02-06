@@ -38,3 +38,7 @@ cogsAccountKey=$(az cognitiveservices account keys list \
 
 echo "Created a Cognitive Services Account: ${cogsAccountName}"
 echo "Cognitive Services Account key: ${cogsAccountKey}"
+
+touch ../computervision.env
+echo "cognitiveservicesaccountname=${cogsAccountName}" >> ../computervision.env
+echo "cognitiveservicesaccountkey=${cogsAccountKey}" >> ../computervision.env
