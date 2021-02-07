@@ -349,5 +349,5 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-# Ignore output from createcomputervision.sh
-computervision.env
+# Ignore any .env
+.env
