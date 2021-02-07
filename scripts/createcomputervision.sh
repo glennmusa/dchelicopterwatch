@@ -40,7 +40,7 @@ cogsAccountKey=$(az cognitiveservices account keys list \
     --name "$cogsAccountName" \
     --resource-group "$rgName" \
     --query "key1" \
-    --output tsv)    
+    --output tsv)
 
 echo "Created a Cognitive Services Account: ${cogsAccountName}"
 echo "Cognitive Services Account Endpoint: ${cogsAccountEndpoint}"
