@@ -30,6 +30,12 @@ cogsAccountName=$(az deployment group show \
     --query properties.parameters.accountName.value \
     --output tsv)
 
+cogsAccountEndpoint=$(az cognitiveservices account show \
+    --name "$cogsAccountName" \
+    --resource-group "$rgName" \
+    --query "properties.endpoint" \
+    --output tsv)
+
 cogsAccountKey=$(az cognitiveservices account keys list \
     --name "$cogsAccountName" \
     --resource-group "$rgName" \
@@ -37,4 +43,10 @@ cogsAccountKey=$(az cognitiveservices account keys list \
     --output tsv)
 
 echo "Created a Cognitive Services Account: ${cogsAccountName}"
+echo "Cognitive Services Account Endpoint: ${cogsAccountEndpoint}"
 echo "Cognitive Services Account key: ${cogsAccountKey}"
+
+touch ../.env
+echo "dchwcogsaccountname=${cogsAccountName}" | tee ../.env
+echo "dchwcogsaccountendpoint=${cogsAccountEndpoint}" | tee -a ../.env
+echo "dchwcogsaccountkey=${cogsAccountKey}" | tee -a ../.env
