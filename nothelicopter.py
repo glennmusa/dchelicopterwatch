@@ -11,7 +11,7 @@ subscription_key = os.getenv('dchwcogsaccountkey')
 endpoint = os.getenv('dchwcogsaccountendpoint')
 computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
 
-image_path = "resources/birds.jpg"
+image_path = "resources/helicopter.jpg"
 
 image = open(image_path, "rb")
 tags_result = computervision_client.tag_image_in_stream(image)
